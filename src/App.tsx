@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Task {
   text: string;
@@ -33,38 +34,50 @@ export default function App() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">📝 To-Do List</h1>
-      <div className="flex mb-4">
+    <div className="container py-5">
+      <div className="text-center mb-4">
+        <img
+          src="https://www.gene.com/assets/frontend/img/social.png"
+          alt="Genentech Logo"
+          className="img-fluid"
+          style={{ maxHeight: "60px" }}
+        />
+        <h1 className="mt-3">📝 To-Do List</h1>
+        <p className="text-muted">
+          This app is made to demonstrate my skills in React JS.
+        </p>
+      </div>
+
+      <div className="input-group mb-3">
         <input
-          className="flex-grow border p-2 mr-2 rounded"
           type="text"
+          className="form-control"
           placeholder="Add a new task..."
           value={input}
           onChange={handleInputChange}
         />
-        <button
-          onClick={addTask}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
+        <button className="btn btn-primary" onClick={addTask}>
           Add
         </button>
       </div>
 
-      <ul>
+      <ul className="list-group">
         {tasks.map((task, index) => (
           <li
             key={index}
-            className={`flex justify-between items-center p-2 mb-2 border rounded ${
-              task.completed ? "line-through text-gray-400" : ""
+            className={`list-group-item d-flex justify-content-between align-items-center ${
+              task.completed ? "text-decoration-line-through text-muted" : ""
             }`}
           >
-            <span onClick={() => toggleTask(index)} className="cursor-pointer flex-grow">
+            <span
+              onClick={() => toggleTask(index)}
+              style={{ cursor: "pointer", flexGrow: 1 }}
+            >
               {task.text}
             </span>
             <button
+              className="btn btn-sm btn-danger ms-2"
               onClick={() => removeTask(index)}
-              className="ml-2 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
             >
               ✕
             </button>
