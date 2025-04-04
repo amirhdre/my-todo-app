@@ -40,7 +40,7 @@ export default function App() {
           src="https://www.gene.com/assets/frontend/img/social.png"
           alt="Genentech Logo"
           className="img-fluid"
-          style={{ maxHeight: "60px" }}
+          style={{ maxHeight: "400  px" }}
         />
         <h1 className="mt-3">📝 To-Do List</h1>
         <p className="text-muted">
