@@ -1,11 +1,11 @@
-import React, { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 
 interface Task {
   text: string;
   completed: boolean;
 }
 
-export default function TodoList(): JSX.Element {
+export default function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [input, setInput] = useState<string>("");
 
@@ -59,10 +59,7 @@ export default function TodoList(): JSX.Element {
               task.completed ? "line-through text-gray-400" : ""
             }`}
           >
-            <span
-              onClick={() => toggleTask(index)}
-              className="cursor-pointer flex-grow"
-            >
+            <span onClick={() => toggleTask(index)} className="cursor-pointer flex-grow">
               {task.text}
             </span>
             <button
